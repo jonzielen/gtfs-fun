@@ -30,19 +30,10 @@ request(requestSettings, function (error, response, body) {
     var feed = GtfsRealtimeBindings.FeedMessage.decode(body);
 
     feed.entity.forEach(function(entity) {
-      data.push(mtaFormat(entity));
+      if (entity.trip_update) {
+        data.push(mtaFormat(entity));
+      }
     });
-
-    // feed.entity.forEach(function(entity, index) {
-    //   if (index === 1) {
-    //     data.push(entity);
-    //   }
-    //
-    //   if (entity.trip_update) {
-    //     data.push(mtaFormat(entity.trip_update.trip));
-    //     return entity.trip_update.trip;
-    //   }
-    // });
   }
 });
 
