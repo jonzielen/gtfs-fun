@@ -3,6 +3,7 @@ var router = express.Router();
 var GtfsRealtimeBindings = require('gtfs-realtime-bindings');
 var request = require('request');
 var mtaFormat = require('../lib/mta-format');
+var subwayStops = require('../lib/subwayStops');
 
 var requestSettings = {
   method: 'GET',
@@ -24,21 +25,27 @@ var requestSettings = {
 
 var data = [];
 
-request(requestSettings, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var feed = GtfsRealtimeBindings.FeedMessage.decode(body);
+/* GET mta feed */
+router.get('/mta', function(req, res, next) {
+  request(requestSettings, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var feed = GtfsRealtimeBindings.FeedMessage.decode(body);
 
-    feed.entity.forEach(function(entity) {
-      if (entity.trip_update) {
-        data.push(mtaFormat(entity));
-      }
-    });
-  }
+      feed.entity.forEach(function(entity) {
+        if (entity.trip_update) {
+          data.push(mtaFormat(entity));
+        }
+      });
+    }
+  });
+
+  res.json(data);
 });
 
 /* GET mta feed */
-router.get('/mta', function(req, res, next) {
-  res.json(data);
+router.get('/subway-stop', function(req, res, next) {
+  res.json(subwayStops());
 });
+
 
 module.exports = router;
