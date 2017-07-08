@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./public/sass/public/sass/main.scss?d88e"],"names":[],"mappings":"AAAA,KACE,UACA,kDAAwD,CAG1D,EACE,aAAc","file":"main.css","sourcesContent":["body {\n  padding: 0;\n  font: 14px \"Lucida Grande\", Helvetica, Arial, sans-serif;\n}\n\na {\n  color: #00B7FF;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./public/sass/public/sass/main.scss"],"sourceRoot":""}
