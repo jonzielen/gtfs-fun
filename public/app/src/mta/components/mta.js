@@ -1,17 +1,20 @@
 class ComponentController {
-   constructor($scope, dataFactory, $timeout) {
-     console.log('in the app');
-   }
+  constructor($scope) {
+    this.one = 'ONE';
+    console.log('in the app: ', this.title);
+  }
 }
 
 // dependency injection
-ComponentController.$inject = ['$scope', 'dataFactory', '$timeout'];
+ComponentController.$inject = ['$scope'];
 
 // define component
 const mta = {
-    bindings: {},
-    controller: ComponentController,
-    templateUrl: '/app/src/mta/components/mta.html'
+  bindings: {
+    title: '='
+  },
+  controller: ComponentController,
+  templateUrl: '/app/src/mta/components/mta.html'
 };
 
 // export

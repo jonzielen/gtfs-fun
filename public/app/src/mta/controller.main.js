@@ -3,7 +3,7 @@ class MainController {
   constructor($scope, $http) {
     this.$scope = $scope;
     this.$http = $http;
-    console.log('made it?');
+    console.log('WHAT');
   }
 }
 
