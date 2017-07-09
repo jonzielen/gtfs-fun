@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const BUILD = path.join(__dirname, './app/build');
+const APP = path.join(__dirname, './app/src');
 
 const extractSass = new ExtractTextPlugin({
   filename: "[name].css"
@@ -74,6 +76,29 @@ const config = [{
         warnings: false
       },
       comments: false
+    })
+  ]
+}, {
+  entry: {
+    mta: path.join(APP, 'mta/app.js'),
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: BUILD
+  },
+  module: {
+    rules: [{
+      test: /\.(js)$/,
+      loader: "babel-loader"
+    }]
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+          warnings: false
+      },
+      comments: false,
+      beautify: false
     })
   ]
 }];

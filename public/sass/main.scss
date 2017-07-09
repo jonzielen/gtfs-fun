@@ -1,8 +1,10 @@
+$linkColor: #00B7FF;
+
 body {
   padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: $linkColor;
 }
