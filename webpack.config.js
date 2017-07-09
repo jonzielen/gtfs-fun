@@ -12,7 +12,7 @@ const extractSass = new ExtractTextPlugin({
 const config = [{
   entry: {
     main: [
-      './public/sass/main.scss'
+      './sass/main.scss'
     ]
   },
   output: {

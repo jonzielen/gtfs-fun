@@ -1,10 +1,17 @@
+@import 'normalize';
+
 $linkColor: #00B7FF;
 
 body {
-  padding: 0;
+  padding: 1rem;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: $linkColor;
+}
+
+h1 {
+  padding: 0;
+  margin-top: 0;
 }
