@@ -1,6 +1,6 @@
 class ComponentController {
    constructor($scope, dataFactory, $timeout) {
-
+     console.log('in the app');
    }
 }
 
