@@ -1,7 +1,8 @@
 class ComponentController {
   constructor($scope) {
     this.one = 'ONE';
-    console.log('in the app: ', this.title);
+    this.name = this.title;
+    console.log('in the app');
   }
 }
 
@@ -11,7 +12,7 @@ ComponentController.$inject = ['$scope'];
 // define component
 const mta = {
   bindings: {
-    title: '='
+    title: '@'
   },
   controller: ComponentController,
   templateUrl: '/app/src/mta/components/mta.html'
