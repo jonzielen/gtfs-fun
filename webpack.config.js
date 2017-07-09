@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const BUILD = path.join(__dirname, './app/build');
+const BUILD = path.join(__dirname, './public/js/app');
 const APP = path.join(__dirname, './app/src');
 
 const extractSass = new ExtractTextPlugin({
