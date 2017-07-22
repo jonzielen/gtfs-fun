@@ -1,14 +1,11 @@
 class ComponentController {
   constructor($scope, dataFactory) {
-    this.one = 'ONE';
-    this.name = this.title;
     this.dataFactory = dataFactory;
   }
 
   $onInit() {
     this.dataFactory.getMtaData().then((response) => {
-    //console.log(response);
-    this.mtaData = response;
+      this.mtaData = response.stopData;
     });
   }
 }
@@ -18,9 +15,7 @@ ComponentController.$inject = ['$scope', 'dataFactory'];
 
 // define component
 const mta = {
-  bindings: {
-    title: '@'
-  },
+  bindings: {},
   controller: ComponentController,
   templateUrl: '/app/src/mta/components/mta.html'
 };

@@ -1,7 +1,12 @@
 <pre>
-  {{$ctrl | json}}
+  <!-- {{$ctrl | json}} -->
 </pre>
 
 <div ng-repeat="item in $ctrl.mtaData">
-  <h6>{{item}}</h6>
+  <h6>{{item.stop.stop_name}}</h6>
+  <h6>{{item.stop.train_lines}}</h6>
+  
+  <!-- <pre>
+    {{item | json}}
+  </pre> -->
 </div>
